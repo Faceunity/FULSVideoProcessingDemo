@@ -1,0 +1,35 @@
+//
+//  NTESDemoPrefix.pch
+//  NEUIDemo
+//
+//  Created by Netease on 16/12/30.
+//  Copyright © 2016年 Netease. All rights reserved.
+//
+
+#ifndef NTESDemoPrefix_pch
+#define NTESDemoPrefix_pch
+
+#import "UIView+NTES.h"
+#import "NTESGlobalMacro.h"
+#import "UIAlertView+NTESBlock.h"
+#import "NSString+NTES.h"
+#import "UIView+Toast.h"
+#import "UIImage+NTES.h"
+#import "NSDate+NSDateFormatter.h"
+#import "ALAssetsLibrary+NTES.h"
+#import "NTESSandboxHelper.h"
+
+//------ Short video Sdk ----
+#import <LSRecorderAndProcessor/LSRecorderAndProcessor.h>
+
+//------ FaceU Sdk -----
+//#import "FURenderer.h"
+//#import "authpack.h"
+//#import "funama.h"
+#include <sys/mman.h>
+#include <sys/stat.h>
+
+// Include any system framework and library headers here that should be included in all compilation units.
+// You will also need to set the Prefix Header build setting of one or more of your targets to reference this file.
+
+#endif /* NTESDemoPrefix_pch */

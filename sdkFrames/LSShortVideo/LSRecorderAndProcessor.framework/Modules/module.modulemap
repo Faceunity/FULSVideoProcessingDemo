@@ -1,0 +1,6 @@
+framework module LSRecorderAndProcessor {
+  umbrella header "LSRecorderAndProcessor.h"
+
+  export *
+  module * { export * }
+}
