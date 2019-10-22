@@ -9,8 +9,6 @@
 /* Begin PBXBuildFile section */
 		E3329D1A212EB855002C82E3 /* libnama.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E3329CFB212EB855002C82E3 /* libnama.a */; };
 		E3329D1B212EB856002C82E3 /* release_note.txt in Resources */ = {isa = PBXBuildFile; fileRef = E3329CFC212EB855002C82E3 /* release_note.txt */; };
-		E3329D1C212EB856002C82E3 /* anim_model.bundle in Resources */ = {isa = PBXBuildFile; fileRef = E3329CFE212EB855002C82E3 /* anim_model.bundle */; };
-		E3329D1D212EB856002C82E3 /* ardata_ex.bundle in Resources */ = {isa = PBXBuildFile; fileRef = E3329CFF212EB855002C82E3 /* ardata_ex.bundle */; };
 		E3329D1E212EB856002C82E3 /* face_beautification.bundle in Resources */ = {isa = PBXBuildFile; fileRef = E3329D00212EB855002C82E3 /* face_beautification.bundle */; };
 		E3329D1F212EB856002C82E3 /* fxaa.bundle in Resources */ = {isa = PBXBuildFile; fileRef = E3329D01212EB855002C82E3 /* fxaa.bundle */; };
 		E3329D20212EB856002C82E3 /* v3.bundle in Resources */ = {isa = PBXBuildFile; fileRef = E3329D02212EB855002C82E3 /* v3.bundle */; };
@@ -158,8 +156,6 @@
 		E3329CFA212EB855002C82E3 /* FURenderer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FURenderer.h; sourceTree = "<group>"; };
 		E3329CFB212EB855002C82E3 /* libnama.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libnama.a; sourceTree = "<group>"; };
 		E3329CFC212EB855002C82E3 /* release_note.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = release_note.txt; sourceTree = "<group>"; };
-		E3329CFE212EB855002C82E3 /* anim_model.bundle */ = {isa = PBXFileReference; lastKnownFileType = file; path = anim_model.bundle; sourceTree = "<group>"; };
-		E3329CFF212EB855002C82E3 /* ardata_ex.bundle */ = {isa = PBXFileReference; lastKnownFileType = file; path = ardata_ex.bundle; sourceTree = "<group>"; };
 		E3329D00212EB855002C82E3 /* face_beautification.bundle */ = {isa = PBXFileReference; lastKnownFileType = file; path = face_beautification.bundle; sourceTree = "<group>"; };
 		E3329D01212EB855002C82E3 /* fxaa.bundle */ = {isa = PBXFileReference; lastKnownFileType = file; path = fxaa.bundle; sourceTree = "<group>"; };
 		E3329D02212EB855002C82E3 /* v3.bundle */ = {isa = PBXFileReference; lastKnownFileType = file; path = v3.bundle; sourceTree = "<group>"; };
@@ -593,8 +589,6 @@
 		E3329CFD212EB855002C82E3 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				E3329CFE212EB855002C82E3 /* anim_model.bundle */,
-				E3329CFF212EB855002C82E3 /* ardata_ex.bundle */,
 				E3329D00212EB855002C82E3 /* face_beautification.bundle */,
 				E3329D01212EB855002C82E3 /* fxaa.bundle */,
 				E3329D02212EB855002C82E3 /* v3.bundle */,
@@ -630,13 +624,6 @@
 				E600F3401EEE8889000F6751 /* SVRadialGradientLayer.m */,
 			);
 			path = SVProgressHUD;
-			sourceTree = "<group>";
-		};
-		E60E58BE1F8F2A7800E8FC46 /* FacdUManger */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = FacdUManger;
 			sourceTree = "<group>";
 		};
 		E60E58D01F8F495400E8FC46 /* TranscodePreview */ = {
@@ -860,7 +847,6 @@
 			children = (
 				E600F3371EEE8889000F6751 /* SVProgressHUD */,
 				E66FA96C1EFCEB05001A886F /* IQKeyboardManager */,
-				E60E58BE1F8F2A7800E8FC46 /* FacdUManger */,
 			);
 			path = ThirdService;
 			sourceTree = "<group>";
@@ -1358,8 +1344,8 @@
 			buildConfigurationList = E649A3041E5BE94800C7966C /* Build configuration list for PBXNativeTarget "FULSVideoProcessingDemo" */;
 			buildPhases = (
 				E649A2E91E5BE94800C7966C /* Sources */,
-				CDCD7EEC214135FC00944949 /* unzip */,
 				E649A2EA1E5BE94800C7966C /* Frameworks */,
+				E3DA486F235EE2B0007CF6E3 /* uizip */,
 				E649A2EB1E5BE94800C7966C /* Resources */,
 				E688453720A46A2C008C59D3 /* ShellScript */,
 				E688453A20A46AC3008C59D3 /* Embed Frameworks */,
@@ -1394,6 +1380,7 @@
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
 			knownRegions = (
+				English,
 				en,
 				Base,
 			);
@@ -1443,8 +1430,6 @@
 				E68C22C01FB3F832008014AA /* water2.png in Resources */,
 				E3329D2E212EB856002C82E3 /* touhua_ztt_fu.bundle in Resources */,
 				E68C22C21FB3F832008014AA /* water13.png in Resources */,
-				E3329D1D212EB856002C82E3 /* ardata_ex.bundle in Resources */,
-				E3329D1C212EB856002C82E3 /* anim_model.bundle in Resources */,
 				E6B45EC91F3D8548007874DC /* 0.MOV in Resources */,
 				E68C22D41FB3F832008014AA /* water7.png in Resources */,
 				E6422C0C1EF91C0700A3D986 /* test.mp3 in Resources */,
@@ -1467,19 +1452,23 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		CDCD7EEC214135FC00944949 /* unzip */ = {
+		E3DA486F235EE2B0007CF6E3 /* uizip */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
+			inputFileListPaths = (
+			);
 			inputPaths = (
 			);
-			name = unzip;
+			name = uizip;
+			outputFileListPaths = (
+			);
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "# Type a script or drag a script file from your workspace to insert its path.\n#!/bin/sh\ncd Faceunity/FaceUnity-SDK-iOS\nfilename=libnama.a\nzipname=libnama.zip\nmdcode=$(md5 $filename)\n\n#如果md5验证失败，且libnama.zip存在,则直接解压\nif ! [ ${mdcode##*=}x = \"b5d46724d0fdf55b2d51887577f88683\"x ] && [ -f \"$zipname\" ];\n    then\n    rm -f $filename\n    unzip $zipname\n    mdcode=$(md5 $filename)\n    \n    if [ ${mdcode##*=}x = \"b5d46724d0fdf55b2d51887577f88683\"x ]; then\n        echo \"ssss\"\n        rm -f $zipname\n        else\n        echo \"fffff\"\n        rm -f $filename\n        fi\n        fi\n";
+			shellScript = "# Type a script or drag a script file from your workspace to insert its path.\n#!/bin/sh/\ncd FaceUnity/FaceUnity-SDK-iOS\nfilename=libnama.a\nzipname=libnama.zip\n\nif [ -f \"$zipname\" ];\nthen\nrm -f $filename\nunzip $zipname\nrm -f $zipname\nfi\n";
 		};
 		E688453720A46A2C008C59D3 /* ShellScript */ = {
 			isa = PBXShellScriptBuildPhase;
