@@ -76,6 +76,16 @@ typedef void(^RecordStartBlock)(NSError *error);
     [[FUManager shareManager] loadItems];
     [self.view addSubview:self.demoBar];
     
+    __weak typeof(self) weakSelf = self;
+    _externalVideoFrameCallback = ^(CMSampleBufferRef pixelBuf) {
+        
+        CVPixelBufferRef buffer = CMSampleBufferGetImageBuffer(pixelBuf) ;
+        [[FUManager shareManager] renderItemsToPixelBuffer:buffer];
+        [weakSelf.mediaCapture externalInputVideoFrame:pixelBuf];
+    };
+    
+    _mediaCapture.externalVideoFrameCallback = _externalVideoFrameCallback;
+    
 }
 
 - (void)didReceiveMemoryWarning {
@@ -120,6 +130,8 @@ typedef void(^RecordStartBlock)(NSError *error);
         //恢复第三方前处理回调
         _mediaCapture.externalVideoFrameCallback = _externalVideoFrameCallback;
     }
+    
+    NSLog(@"------- LS SDK version:%@", [LSMediaRecording SDKVersion]);
 }
 
 - (void)viewDidDisappear:(BOOL)animated
@@ -172,16 +184,6 @@ typedef void(^RecordStartBlock)(NSError *error);
         NSInteger filterIndex = [NTESRecordDataCenter shareInstance].config.curFilterIndex;
         [_mediaCapture setFilterType:(LSRecordGPUImageFilterType)filterIndex];
         [_mediaCapture setExposureValue:[NTESRecordDataCenter shareInstance].config.exposureValue];
-#warning 视频采集数据回调
-        __weak typeof(self) weakSelf = self;
-        _externalVideoFrameCallback = ^(CMSampleBufferRef pixelBuf) {
-            __strong typeof(weakSelf) strongSelf = weakSelf;
-            CVPixelBufferRef pixelBuffer = CMSampleBufferGetImageBuffer(pixelBuf) ;
-            
-            /*** ------ 加入 FaceUnity 效果 ------ **/
-            [[FUManager shareManager] renderItemsToPixelBuffer:pixelBuffer];
-            [strongSelf.mediaCapture externalInputVideoFrame:pixelBuf];
-        };
         
         [[NSNotificationCenter defaultCenter] addObserver:self
                                                  selector:@selector(onStartLiveStream:)
@@ -300,7 +302,6 @@ typedef void(^RecordStartBlock)(NSError *error);
 - (void)ControlBar:(NTESRecordControlBar *)bar faceUOpen:(BOOL)isOpen {
     NSLog(@"[录制Demo事件] 点击了美颜开关，[%@]", isOpen ? @"YES" : @"NO");
     _demoBar.hidden = !isOpen;
-    _mediaCapture.externalVideoFrameCallback = (isOpen ? _externalVideoFrameCallback : nil);
 }
 
 //水印事件
@@ -567,7 +568,7 @@ typedef void(^RecordStartBlock)(NSError *error);
 // demobar 初始化
 -(FUAPIDemoBar *)demoBar {
     if (!_demoBar) {
-        _demoBar = [[FUAPIDemoBar alloc] initWithFrame:CGRectMake(0, 40, self.view.frame.size.width, 164)];
+        _demoBar = [[FUAPIDemoBar alloc] initWithFrame:CGRectMake(0, 340, self.view.frame.size.width, 164)];
         
         _demoBar.itemsDataSource = [FUManager shareManager].itemsDataSource;
         _demoBar.selectedItem = [FUManager shareManager].selectedItem ;
@@ -595,7 +596,6 @@ typedef void(^RecordStartBlock)(NSError *error);
         _demoBar.foreheadLevel = [FUManager shareManager].foreheadLevel ;
         _demoBar.noseLevel = [FUManager shareManager].noseLevel ;
         _demoBar.mouthLevel = [FUManager shareManager].mouthLevel ;
-        _demoBar.hidden = YES;
         _demoBar.delegate = self;
     }
     return _demoBar ;

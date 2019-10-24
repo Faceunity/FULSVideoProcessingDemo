@@ -18,11 +18,13 @@
 
 #import "GPUImageGrayscaleFilter.h"
 #import "GPUImageHueFilter.h"
+
 #import "FUManager.h"
+#import <FUAPIDemoBar/FUAPIDemoBar.h>
 
 typedef void(^TranscodingCompleteBlock)(NSError *error, NSString *outPath);
 
-@interface SVDTranscodePreviewVC () <SVDEditBottomBarProtocol, SVDEditTopBarProtocol, NTESMenuViewProtocol>
+@interface SVDTranscodePreviewVC () <SVDEditBottomBarProtocol, SVDEditTopBarProtocol, NTESMenuViewProtocol, FUAPIDemoBarDelegate>
 
 @property (nonatomic, strong) SVDEditTopBar *topBar;
 @property (nonatomic, strong) SVDEditBottomBar *bottomBar;
@@ -47,7 +49,7 @@ typedef void(^TranscodingCompleteBlock)(NSError *error, NSString *outPath);
 @property (nonatomic, strong) TranscodingCompleteBlock transcodingComplete;
 
 //FaceUSdk
-@property (nonatomic,copy) void (^externalVideoFrameCallback)(CMSampleBufferRef pixelBuf);
+//@property (nonatomic,copy) void (^externalVideoFrameCallback)(CMSampleBufferRef pixelBuf);
 
 //音频播放器
 @property (nonatomic, strong) NSMutableArray *playerItems;
@@ -58,9 +60,85 @@ typedef void(^TranscodingCompleteBlock)(NSError *error, NSString *outPath);
 
 @property (nonatomic, strong) NSArray *videoPaths;
 
+
+@property (nonatomic, strong) FUAPIDemoBar *demoBar ;
 @end
 
 @implementation SVDTranscodePreviewVC
+
+
+
+#pragma  mark ----  FUAPIDemoBarDelegate  -----
+// demobar 初始化
+-(FUAPIDemoBar *)demoBar {
+    if (!_demoBar) {
+        _demoBar = [[FUAPIDemoBar alloc] initWithFrame:CGRectMake(0, 340, self.view.frame.size.width, 164)];
+        
+        _demoBar.itemsDataSource = [FUManager shareManager].itemsDataSource;
+        _demoBar.selectedItem = [FUManager shareManager].selectedItem ;
+        
+        _demoBar.filtersDataSource = [FUManager shareManager].filtersDataSource ;
+        _demoBar.beautyFiltersDataSource = [FUManager shareManager].beautyFiltersDataSource ;
+        _demoBar.filtersCHName = [FUManager shareManager].filtersCHName ;
+        _demoBar.selectedFilter = [FUManager shareManager].selectedFilter ;
+        [_demoBar setFilterLevel:[FUManager shareManager].selectedFilterLevel forFilter:[FUManager shareManager].selectedFilter] ;
+        
+        _demoBar.skinDetectEnable = [FUManager shareManager].skinDetectEnable;
+        _demoBar.blurShape = [FUManager shareManager].blurShape ;
+        _demoBar.blurLevel = [FUManager shareManager].blurLevel ;
+        _demoBar.whiteLevel = [FUManager shareManager].whiteLevel ;
+        _demoBar.redLevel = [FUManager shareManager].redLevel;
+        _demoBar.eyelightingLevel = [FUManager shareManager].eyelightingLevel ;
+        _demoBar.beautyToothLevel = [FUManager shareManager].beautyToothLevel ;
+        _demoBar.faceShape = [FUManager shareManager].faceShape ;
+        
+        _demoBar.enlargingLevel = [FUManager shareManager].enlargingLevel ;
+        _demoBar.thinningLevel = [FUManager shareManager].thinningLevel ;
+        _demoBar.enlargingLevel_new = [FUManager shareManager].enlargingLevel_new ;
+        _demoBar.thinningLevel_new = [FUManager shareManager].thinningLevel_new ;
+        _demoBar.jewLevel = [FUManager shareManager].jewLevel ;
+        _demoBar.foreheadLevel = [FUManager shareManager].foreheadLevel ;
+        _demoBar.noseLevel = [FUManager shareManager].noseLevel ;
+        _demoBar.mouthLevel = [FUManager shareManager].mouthLevel ;
+        _demoBar.delegate = self;
+    }
+    return _demoBar ;
+}
+
+// 切换贴纸
+- (void)demoBarDidSelectedItem:(NSString *)itemName {
+    [[FUManager shareManager] loadItem:itemName];
+}
+
+// 更新美颜参数
+- (void)demoBarBeautyParamChanged {
+    
+    [FUManager shareManager].skinDetectEnable = _demoBar.skinDetectEnable;
+    [FUManager shareManager].blurShape = _demoBar.blurShape;
+    [FUManager shareManager].blurLevel = _demoBar.blurLevel ;
+    [FUManager shareManager].whiteLevel = _demoBar.whiteLevel;
+    [FUManager shareManager].redLevel = _demoBar.redLevel;
+    [FUManager shareManager].eyelightingLevel = _demoBar.eyelightingLevel;
+    [FUManager shareManager].beautyToothLevel = _demoBar.beautyToothLevel;
+    [FUManager shareManager].faceShape = _demoBar.faceShape;
+    [FUManager shareManager].enlargingLevel = _demoBar.enlargingLevel;
+    [FUManager shareManager].thinningLevel = _demoBar.thinningLevel;
+    [FUManager shareManager].enlargingLevel_new = _demoBar.enlargingLevel_new;
+    [FUManager shareManager].thinningLevel_new = _demoBar.thinningLevel_new;
+    [FUManager shareManager].jewLevel = _demoBar.jewLevel;
+    [FUManager shareManager].foreheadLevel = _demoBar.foreheadLevel;
+    [FUManager shareManager].noseLevel = _demoBar.noseLevel;
+    [FUManager shareManager].mouthLevel = _demoBar.mouthLevel;
+    
+    [FUManager shareManager].selectedFilter = _demoBar.selectedFilter ;
+    [FUManager shareManager].selectedFilterLevel = _demoBar.selectedFilterLevel;
+}
+
+
+
+
+
+
 
 - (void)dealloc {
     [[NSNotificationCenter defaultCenter] removeObserver:self];
@@ -73,6 +151,21 @@ typedef void(^TranscodingCompleteBlock)(NSError *error, NSString *outPath);
     [self doInitSubviews];
     
     [self doInitTranscode];
+    
+    [[FUManager shareManager] loadItems];
+    [self.view addSubview:self.demoBar];
+}
+
+-(void)viewDidAppear:(BOOL)animated {
+    [super viewDidAppear:animated];
+    
+    __weak typeof(self)weakSelf = self ;
+    _mediaTransc.externalVideoFrameCallback = ^(CMSampleBufferRef sampleBuffer) {
+        
+        CVPixelBufferRef pixelBuffer = CMSampleBufferGetImageBuffer(sampleBuffer);
+        [[FUManager shareManager] renderItemsToPixelBuffer:pixelBuffer];
+        [weakSelf.mediaTransc externalInputVideoFrame:sampleBuffer];
+    };
 }
 
 - (BOOL)prefersStatusBarHidden {
@@ -143,15 +236,6 @@ typedef void(^TranscodingCompleteBlock)(NSError *error, NSString *outPath);
     //开始预览
     _mediaTransc.inputMainFileNameArray = _videoPaths;
     
-    __weak typeof(self) weakSelf = self;
-    _externalVideoFrameCallback = ^(CMSampleBufferRef sampleBuf) {
-//        [[NTESFaceUManger shareInstance] processSampleBuffer:sampleBuf];
-        CVPixelBufferRef pixelBuffer = CMSampleBufferGetImageBuffer(sampleBuf) ;
-        [[FUManager shareManager] renderItemsToPixelBuffer:pixelBuffer];
-        
-        [weakSelf.mediaTransc externalInputVideoFrame:sampleBuf];
-    };
-
     [_mediaTransc startVideoPreview:self.playerContainerView];
 }
 
@@ -230,8 +314,14 @@ typedef void(^TranscodingCompleteBlock)(NSError *error, NSString *outPath);
 }
 
 - (void)SVDEditTopBarFaceUAction:(SVDEditTopBar *)bar isOn:(BOOL)isOn {
-    NSLog(@"[转码测试Demo] 设置FackU回调, %@", (isOn ? @"YES" : @"NO"));
-    _mediaTransc.externalVideoFrameCallback = (isOn ? _externalVideoFrameCallback : nil);
+//    __weak typeof(self)weakSelf = self ;
+//    _mediaTransc.externalVideoFrameCallback = ^(CMSampleBufferRef sampleBuffer) {
+//
+//        CVPixelBufferRef pixelBuffer = CMSampleBufferGetImageBuffer(sampleBuffer);
+//        [[FUManager shareManager] renderItemsToPixelBuffer:pixelBuffer];
+//        NSLog(@"----------------- woriniama ~");
+//        [weakSelf.mediaTransc externalInputVideoFrame:sampleBuffer];
+//    };
 }
 
 #pragma mark - <SVDEditBottomBarProtocol>

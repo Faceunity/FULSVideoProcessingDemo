@@ -8,11 +8,11 @@ FULSVideoProcessingDemo 是集成了 Faceunity 面部跟踪和虚拟道具功能
 
 ## 快速集成方法
 
-### 一、导入 SDK
+### 1、导入 SDK
 
 将 FaceUnity 文件夹全部拖入工程中，并且添加依赖库 OpenGLES.framework、Accelerate.framework、CoreMedia.framework、AVFoundation.framework、stdc++.tbd
 
-### 二、快速加载道具
+### 2、快速加载道具
 
 在 NTESRecordVC.m 的  `viewDidLoad` 中调用快速加载道具函数，该函数会创建一个美颜道具及指定的贴纸道具。
 
@@ -22,22 +22,44 @@ FULSVideoProcessingDemo 是集成了 Faceunity 面部跟踪和虚拟道具功能
 
 注：FUManager 的 shareManager 函数中会对 SDK 进行初始化，并设置默认的美颜参数。
 
-### 三、图像处理
+### 3、图像处理
 
-在  `-(void) doInitRecordSdk` 设置图像处理 Block ，并对图像进行处理：
+#### 3.1、在录制视频的时候添加 FaceUnity 效果
 
-```c
+在  `NTESRecordVC.m` 的 `viewDidLoad:`方法中添加一下代码
+
+```C
+__weak typeof(self) weakSelf = self;
 _externalVideoFrameCallback = ^(CMSampleBufferRef pixelBuf) {
-            __strong typeof(weakSelf) strongSelf = weakSelf;
-            CVPixelBufferRef pixelBuffer = CMSampleBufferGetImageBuffer(pixelBuf) ;
-            
-            /*** ------ 加入 FaceUnity 效果 ------ **/
-            [[FUManager shareManager] renderItemsToPixelBuffer:pixelBuffer];
-            [strongSelf.mediaCapture externalInputVideoFrame:pixelBuf];
+    
+    CVPixelBufferRef buffer = CMSampleBufferGetImageBuffer(pixelBuf) ;
+    [[FUManager shareManager] renderItemsToPixelBuffer:buffer];
+    [weakSelf.mediaCapture externalInputVideoFrame:pixelBuf];
 };
+    
+_mediaCapture.externalVideoFrameCallback = _externalVideoFrameCallback;
 ```
 
-### 四、切换道具及调整美颜参数
+#### 3.2、在编辑视频的时候添加 FaceUnity 效果
+
+在 `SVDTranscodePreviewVC.m` 中添加以下代码
+
+```C
+-(void)viewDidAppear:(BOOL)animated {
+    [super viewDidAppear:animated];
+    
+    __weak typeof(self)weakSelf = self ;
+    _mediaTransc.externalVideoFrameCallback = ^(CMSampleBufferRef sampleBuffer) {
+        
+        CVPixelBufferRef pixelBuffer = CMSampleBufferGetImageBuffer(sampleBuffer);
+        [[FUManager shareManager] renderItemsToPixelBuffer:pixelBuffer];
+        [weakSelf.mediaTransc externalInputVideoFrame:sampleBuffer];
+    };
+}
+```
+
+
+### 4、切换道具及调整美颜参数
 
 本例中通过添加 FUAPIDemoBar 来实现切换道具及调整美颜参数的具体实现，FUAPIDemoBar 是快速集成用的UI，客户可自定义UI。
 
@@ -140,7 +162,7 @@ _externalVideoFrameCallback = ^(CMSampleBufferRef pixelBuf) {
 
 
 
-### **五**、道具销毁
+### 5、道具销毁
 
 视频录制结束时需要销毁道具
 
