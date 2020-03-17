@@ -7,11 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		E3329D1A212EB855002C82E3 /* libnama.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E3329CFB212EB855002C82E3 /* libnama.a */; };
-		E3329D1B212EB856002C82E3 /* release_note.txt in Resources */ = {isa = PBXBuildFile; fileRef = E3329CFC212EB855002C82E3 /* release_note.txt */; };
-		E3329D1E212EB856002C82E3 /* face_beautification.bundle in Resources */ = {isa = PBXBuildFile; fileRef = E3329D00212EB855002C82E3 /* face_beautification.bundle */; };
-		E3329D1F212EB856002C82E3 /* fxaa.bundle in Resources */ = {isa = PBXBuildFile; fileRef = E3329D01212EB855002C82E3 /* fxaa.bundle */; };
-		E3329D20212EB856002C82E3 /* v3.bundle in Resources */ = {isa = PBXBuildFile; fileRef = E3329D02212EB855002C82E3 /* v3.bundle */; };
 		E3329D2A212EB856002C82E3 /* fengya_ztt_fu.bundle in Resources */ = {isa = PBXBuildFile; fileRef = E3329D13212EB855002C82E3 /* fengya_ztt_fu.bundle */; };
 		E3329D2B212EB856002C82E3 /* hudie_lm_fu.bundle in Resources */ = {isa = PBXBuildFile; fileRef = E3329D14212EB855002C82E3 /* hudie_lm_fu.bundle */; };
 		E3329D2C212EB856002C82E3 /* juanhuzi_lm_fu.bundle in Resources */ = {isa = PBXBuildFile; fileRef = E3329D15212EB855002C82E3 /* juanhuzi_lm_fu.bundle */; };
@@ -24,6 +19,12 @@
 		E3329D39212EC3CB002C82E3 /* FUAPIDemoBar.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E3329D0F212EB855002C82E3 /* FUAPIDemoBar.framework */; };
 		E3329D3A212EC3EB002C82E3 /* LSRecorderAndProcessor.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E688452120A467DA008C59D3 /* LSRecorderAndProcessor.framework */; };
 		E3329D3B212EC43C002C82E3 /* FUAPIDemoBar.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = E3329D0F212EB855002C82E3 /* FUAPIDemoBar.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		E3832EDD240CBB8600A46DBA /* release_note.txt in Resources */ = {isa = PBXBuildFile; fileRef = E3832ED2240CBB8600A46DBA /* release_note.txt */; };
+		E3832EDE240CBB8600A46DBA /* libnama.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E3832ED3240CBB8600A46DBA /* libnama.a */; };
+		E3832EDF240CBB8600A46DBA /* v3.bundle in Resources */ = {isa = PBXBuildFile; fileRef = E3832ED5240CBB8600A46DBA /* v3.bundle */; };
+		E3832EE0240CBB8600A46DBA /* ai_face_processor.bundle in Resources */ = {isa = PBXBuildFile; fileRef = E3832ED7240CBB8600A46DBA /* ai_face_processor.bundle */; };
+		E3832EE1240CBB8600A46DBA /* face_beautification.bundle in Resources */ = {isa = PBXBuildFile; fileRef = E3832ED8240CBB8600A46DBA /* face_beautification.bundle */; };
+		E3832EE2240CBB8600A46DBA /* libfuai.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E3832EDC240CBB8600A46DBA /* libfuai.a */; };
 		E600F3411EEE8889000F6751 /* SVIndefiniteAnimatedView.m in Sources */ = {isa = PBXBuildFile; fileRef = E600F3391EEE8889000F6751 /* SVIndefiniteAnimatedView.m */; };
 		E600F3421EEE8889000F6751 /* SVProgressAnimatedView.m in Sources */ = {isa = PBXBuildFile; fileRef = E600F33B1EEE8889000F6751 /* SVProgressAnimatedView.m */; };
 		E600F3431EEE8889000F6751 /* SVProgressHUD.bundle in Resources */ = {isa = PBXBuildFile; fileRef = E600F33C1EEE8889000F6751 /* SVProgressHUD.bundle */; };
@@ -152,13 +153,6 @@
 
 /* Begin PBXFileReference section */
 		E3329CF6212EB855002C82E3 /* authpack.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = authpack.h; sourceTree = "<group>"; };
-		E3329CF9212EB855002C82E3 /* funama.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = funama.h; sourceTree = "<group>"; };
-		E3329CFA212EB855002C82E3 /* FURenderer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FURenderer.h; sourceTree = "<group>"; };
-		E3329CFB212EB855002C82E3 /* libnama.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libnama.a; sourceTree = "<group>"; };
-		E3329CFC212EB855002C82E3 /* release_note.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = release_note.txt; sourceTree = "<group>"; };
-		E3329D00212EB855002C82E3 /* face_beautification.bundle */ = {isa = PBXFileReference; lastKnownFileType = file; path = face_beautification.bundle; sourceTree = "<group>"; };
-		E3329D01212EB855002C82E3 /* fxaa.bundle */ = {isa = PBXFileReference; lastKnownFileType = file; path = fxaa.bundle; sourceTree = "<group>"; };
-		E3329D02212EB855002C82E3 /* v3.bundle */ = {isa = PBXFileReference; lastKnownFileType = file; path = v3.bundle; sourceTree = "<group>"; };
 		E3329D0F212EB855002C82E3 /* FUAPIDemoBar.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FUAPIDemoBar.framework; sourceTree = "<group>"; };
 		E3329D10212EB855002C82E3 /* FUManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FUManager.h; sourceTree = "<group>"; };
 		E3329D11212EB855002C82E3 /* FUManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FUManager.m; sourceTree = "<group>"; };
@@ -169,6 +163,14 @@
 		E3329D17212EB855002C82E3 /* touhua_ztt_fu.bundle */ = {isa = PBXFileReference; lastKnownFileType = file; path = touhua_ztt_fu.bundle; sourceTree = "<group>"; };
 		E3329D18212EB855002C82E3 /* yazui.bundle */ = {isa = PBXFileReference; lastKnownFileType = file; path = yazui.bundle; sourceTree = "<group>"; };
 		E3329D19212EB855002C82E3 /* yuguan.bundle */ = {isa = PBXFileReference; lastKnownFileType = file; path = yuguan.bundle; sourceTree = "<group>"; };
+		E3832ED2240CBB8600A46DBA /* release_note.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = release_note.txt; sourceTree = "<group>"; };
+		E3832ED3240CBB8600A46DBA /* libnama.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libnama.a; sourceTree = "<group>"; };
+		E3832ED5240CBB8600A46DBA /* v3.bundle */ = {isa = PBXFileReference; lastKnownFileType = file; path = v3.bundle; sourceTree = "<group>"; };
+		E3832ED7240CBB8600A46DBA /* ai_face_processor.bundle */ = {isa = PBXFileReference; lastKnownFileType = file; path = ai_face_processor.bundle; sourceTree = "<group>"; };
+		E3832ED8240CBB8600A46DBA /* face_beautification.bundle */ = {isa = PBXFileReference; lastKnownFileType = file; path = face_beautification.bundle; sourceTree = "<group>"; };
+		E3832EDA240CBB8600A46DBA /* funama.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = funama.h; sourceTree = "<group>"; };
+		E3832EDB240CBB8600A46DBA /* FURenderer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FURenderer.h; sourceTree = "<group>"; };
+		E3832EDC240CBB8600A46DBA /* libfuai.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libfuai.a; sourceTree = "<group>"; };
 		E600F3381EEE8889000F6751 /* SVIndefiniteAnimatedView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SVIndefiniteAnimatedView.h; sourceTree = "<group>"; };
 		E600F3391EEE8889000F6751 /* SVIndefiniteAnimatedView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SVIndefiniteAnimatedView.m; sourceTree = "<group>"; };
 		E600F33A1EEE8889000F6751 /* SVProgressAnimatedView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SVProgressAnimatedView.h; sourceTree = "<group>"; };
@@ -544,8 +546,9 @@
 			files = (
 				E3329D33212EBAEA002C82E3 /* libc++.tbd in Frameworks */,
 				E3329D3A212EC3EB002C82E3 /* LSRecorderAndProcessor.framework in Frameworks */,
+				E3832EE2240CBB8600A46DBA /* libfuai.a in Frameworks */,
 				E688451220A454EA008C59D3 /* Accelerate.framework in Frameworks */,
-				E3329D1A212EB855002C82E3 /* libnama.a in Frameworks */,
+				E3832EDE240CBB8600A46DBA /* libnama.a in Frameworks */,
 				E3329D39212EC3CB002C82E3 /* FUAPIDemoBar.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -557,43 +560,13 @@
 			isa = PBXGroup;
 			children = (
 				E3329CF6212EB855002C82E3 /* authpack.h */,
-				E3329CF7212EB855002C82E3 /* FaceUnity-SDK-iOS */,
+				E3832ED1240CBB8600A46DBA /* FaceUnity-SDK-iOS */,
 				E3329D0F212EB855002C82E3 /* FUAPIDemoBar.framework */,
 				E3329D10212EB855002C82E3 /* FUManager.h */,
 				E3329D11212EB855002C82E3 /* FUManager.m */,
 				E3329D12212EB855002C82E3 /* items */,
 			);
 			path = FaceUnity;
-			sourceTree = "<group>";
-		};
-		E3329CF7212EB855002C82E3 /* FaceUnity-SDK-iOS */ = {
-			isa = PBXGroup;
-			children = (
-				E3329CF8212EB855002C82E3 /* Headers */,
-				E3329CFB212EB855002C82E3 /* libnama.a */,
-				E3329CFC212EB855002C82E3 /* release_note.txt */,
-				E3329CFD212EB855002C82E3 /* Resources */,
-			);
-			path = "FaceUnity-SDK-iOS";
-			sourceTree = "<group>";
-		};
-		E3329CF8212EB855002C82E3 /* Headers */ = {
-			isa = PBXGroup;
-			children = (
-				E3329CF9212EB855002C82E3 /* funama.h */,
-				E3329CFA212EB855002C82E3 /* FURenderer.h */,
-			);
-			path = Headers;
-			sourceTree = "<group>";
-		};
-		E3329CFD212EB855002C82E3 /* Resources */ = {
-			isa = PBXGroup;
-			children = (
-				E3329D00212EB855002C82E3 /* face_beautification.bundle */,
-				E3329D01212EB855002C82E3 /* fxaa.bundle */,
-				E3329D02212EB855002C82E3 /* v3.bundle */,
-			);
-			path = Resources;
 			sourceTree = "<group>";
 		};
 		E3329D12212EB855002C82E3 /* items */ = {
@@ -608,6 +581,45 @@
 				E3329D19212EB855002C82E3 /* yuguan.bundle */,
 			);
 			path = items;
+			sourceTree = "<group>";
+		};
+		E3832ED1240CBB8600A46DBA /* FaceUnity-SDK-iOS */ = {
+			isa = PBXGroup;
+			children = (
+				E3832ED2240CBB8600A46DBA /* release_note.txt */,
+				E3832ED3240CBB8600A46DBA /* libnama.a */,
+				E3832ED4240CBB8600A46DBA /* Resources */,
+				E3832ED9240CBB8600A46DBA /* Headers */,
+				E3832EDC240CBB8600A46DBA /* libfuai.a */,
+			);
+			path = "FaceUnity-SDK-iOS";
+			sourceTree = "<group>";
+		};
+		E3832ED4240CBB8600A46DBA /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				E3832ED5240CBB8600A46DBA /* v3.bundle */,
+				E3832ED6240CBB8600A46DBA /* AI_model */,
+				E3832ED8240CBB8600A46DBA /* face_beautification.bundle */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		E3832ED6240CBB8600A46DBA /* AI_model */ = {
+			isa = PBXGroup;
+			children = (
+				E3832ED7240CBB8600A46DBA /* ai_face_processor.bundle */,
+			);
+			path = AI_model;
+			sourceTree = "<group>";
+		};
+		E3832ED9240CBB8600A46DBA /* Headers */ = {
+			isa = PBXGroup;
+			children = (
+				E3832EDA240CBB8600A46DBA /* funama.h */,
+				E3832EDB240CBB8600A46DBA /* FURenderer.h */,
+			);
+			path = Headers;
 			sourceTree = "<group>";
 		};
 		E600F3371EEE8889000F6751 /* SVProgressHUD */ = {
@@ -1343,9 +1355,9 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = E649A3041E5BE94800C7966C /* Build configuration list for PBXNativeTarget "FULSVideoProcessingDemo" */;
 			buildPhases = (
+				E3832EE3240CD28F00A46DBA /* unzip */,
 				E649A2E91E5BE94800C7966C /* Sources */,
 				E649A2EA1E5BE94800C7966C /* Frameworks */,
-				E3DA486F235EE2B0007CF6E3 /* uizip */,
 				E649A2EB1E5BE94800C7966C /* Resources */,
 				E688453720A46A2C008C59D3 /* ShellScript */,
 				E688453A20A46AC3008C59D3 /* Embed Frameworks */,
@@ -1400,7 +1412,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				E68C22C41FB3F832008014AA /* water16.png in Resources */,
-				E3329D1F212EB856002C82E3 /* fxaa.bundle in Resources */,
 				E68C22C61FB3F832008014AA /* water9.png in Resources */,
 				E3329D2D212EB856002C82E3 /* mask_hat.bundle in Resources */,
 				E6422C151EF91C1200A3D986 /* logo.png in Resources */,
@@ -1408,10 +1419,10 @@
 				E68C22BE1FB3F832008014AA /* water5.png in Resources */,
 				E68C22CF1FB3F832008014AA /* water19.png in Resources */,
 				E68C22D21FB3F832008014AA /* water8.png in Resources */,
-				E3329D20212EB856002C82E3 /* v3.bundle in Resources */,
 				E649A3001E5BE94800C7966C /* LaunchScreen.storyboard in Resources */,
 				E3329D2F212EB856002C82E3 /* yazui.bundle in Resources */,
 				E3329D30212EB856002C82E3 /* yuguan.bundle in Resources */,
+				E3832EDF240CBB8600A46DBA /* v3.bundle in Resources */,
 				E3329D2B212EB856002C82E3 /* hudie_lm_fu.bundle in Resources */,
 				E6422C5E1EF922B500A3D986 /* SVDOutputConfigView.xib in Resources */,
 				E692D0AA2093037400920EB3 /* SVPictureProcessVC.xib in Resources */,
@@ -1419,7 +1430,6 @@
 				E68C22C31FB3F832008014AA /* water14.png in Resources */,
 				E68C22BF1FB3F832008014AA /* water18.png in Resources */,
 				E688453620A46A17008C59D3 /* StripFrameworks.sh in Resources */,
-				E3329D1B212EB856002C82E3 /* release_note.txt in Resources */,
 				E68C22D11FB3F832008014AA /* water1.png in Resources */,
 				E68C22CA1FB3F832008014AA /* water3.png in Resources */,
 				E68C22CE1FB3F832008014AA /* water0.png in Resources */,
@@ -1430,6 +1440,7 @@
 				E68C22C01FB3F832008014AA /* water2.png in Resources */,
 				E3329D2E212EB856002C82E3 /* touhua_ztt_fu.bundle in Resources */,
 				E68C22C21FB3F832008014AA /* water13.png in Resources */,
+				E3832EDD240CBB8600A46DBA /* release_note.txt in Resources */,
 				E6B45EC91F3D8548007874DC /* 0.MOV in Resources */,
 				E68C22D41FB3F832008014AA /* water7.png in Resources */,
 				E6422C0C1EF91C0700A3D986 /* test.mp3 in Resources */,
@@ -1437,22 +1448,23 @@
 				E68C22C81FB3F832008014AA /* water10.png in Resources */,
 				E68C22C11FB3F832008014AA /* water11.png in Resources */,
 				E688461A20A46D25008C59D3 /* IQKeyboardManager.bundle in Resources */,
+				E3832EE1240CBB8600A46DBA /* face_beautification.bundle in Resources */,
 				E600F3431EEE8889000F6751 /* SVProgressHUD.bundle in Resources */,
 				E68C22CB1FB3F832008014AA /* water15.png in Resources */,
+				E3832EE0240CBB8600A46DBA /* ai_face_processor.bundle in Resources */,
 				E6422C0D1EF91C0700A3D986 /* test2.mp3 in Resources */,
 				E690B4C51F0B70D6008DC4D0 /* 闪屏.png in Resources */,
 				E68C22C91FB3F832008014AA /* water6.png in Resources */,
 				E68C22CD1FB3F832008014AA /* water22.png in Resources */,
 				E68C22D31FB3F832008014AA /* water21.png in Resources */,
 				E690B4C91F0B71CB008DC4D0 /* test_1.mp3 in Resources */,
-				E3329D1E212EB856002C82E3 /* face_beautification.bundle in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		E3DA486F235EE2B0007CF6E3 /* uizip */ = {
+		E3832EE3240CD28F00A46DBA /* unzip */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -1461,14 +1473,14 @@
 			);
 			inputPaths = (
 			);
-			name = uizip;
+			name = unzip;
 			outputFileListPaths = (
 			);
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "# Type a script or drag a script file from your workspace to insert its path.\n#!/bin/sh/\ncd FaceUnity/FaceUnity-SDK-iOS\nfilename=libnama.a\nzipname=libnama.zip\n\nif [ -f \"$zipname\" ];\nthen\nrm -f $filename\nunzip $zipname\nrm -f $zipname\nfi\n";
+			shellScript = "# Type a script or drag a script file from your workspace to insert its path.\n#!/bin/sh/\ncd FaceUnity/FaceUnity-SDK-iOS\nfilename=libnama.a\nzipname=libnama.zip\n\nfilename2=libfuai.a\nzipname2=libfuai.zip\nmdcode=$(md5 $filename)\n\nif [ -f \"$zipname\" ];\nthen\nrm -f $filename\nunzip $zipname\nrm -f $zipname\n\nrm -f $filename2\nunzip $zipname2\nrm -f $zipname2\nfi\n";
 		};
 		E688453720A46A2C008C59D3 /* ShellScript */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -1696,6 +1708,7 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)/../sdkFrames/**",
 					"\"$(SRCROOT)/FaceUnity/FaceUnity-SDK-iOS\"",
+					"$(PROJECT_DIR)/FaceUnity/FaceUnity-SDK-iOS",
 				);
 				OTHER_CFLAGS = "-fembed-bitcode";
 				OTHER_LDFLAGS = (
@@ -1736,6 +1749,7 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)/../sdkFrames/**",
 					"\"$(SRCROOT)/FaceUnity/FaceUnity-SDK-iOS\"",
+					"$(PROJECT_DIR)/FaceUnity/FaceUnity-SDK-iOS",
 				);
 				OTHER_CFLAGS = "-fembed-bitcode";
 				OTHER_LDFLAGS = (
