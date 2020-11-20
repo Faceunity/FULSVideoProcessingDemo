@@ -49,7 +49,7 @@
     
     CGFloat width = 44.0;
     
-    _quitBtn.frame = CGRectMake(0, 0, width, width);
+    _quitBtn.frame = CGRectMake(0, (MAStatusBarHeight) - 20, width, width);
     _cameraBtn.frame = CGRectMake(self.width - width, _quitBtn.top, width, width);
     _audioBtn.frame = CGRectMake(_cameraBtn.left - 8.0 - width, _cameraBtn.top, width, width);
     _filterBtn.frame = CGRectMake(_audioBtn.left - 8.0 - width, _cameraBtn.top, width, width);
@@ -249,7 +249,7 @@
     if (!_sdkSwitchBtn) {
         _sdkSwitchBtn = [[UISwitch alloc] init];
         _sdkSwitchBtn.tag = 22;
-        _sdkSwitchBtn.on = NO;
+        _sdkSwitchBtn.on = YES;
         [_sdkSwitchBtn addTarget:self action:@selector(switchAction:) forControlEvents:UIControlEventValueChanged];
     }
     return _sdkSwitchBtn;

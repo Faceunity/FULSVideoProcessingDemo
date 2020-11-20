@@ -22,6 +22,23 @@
 #define UISreenWidthScale   UIScreenWidth / 375 //以iphone6 尺寸为标准
 #define UISreenHeightScale  UIScreenHeight / 667 
 
+
+// 判断是否为iPhone X 系列  这样写消除了在Xcode10上的警告。
+#define isIPhoneX \
+({BOOL isPhoneX = NO;\
+if (@available(iOS 11.0, *)) {\
+isPhoneX = [[UIApplication sharedApplication] delegate].window.safeAreaInsets.bottom > 0.0;\
+}\
+(isPhoneX);})
+
+//导航栏高度
+#define  MANavBarHeight  isIPhoneX ? 88 : 64
+//底部Tabbar 高度
+#define MATabBarHeight  isIPhoneX ? 83 : 49
+//状态栏高度
+#define  MAStatusBarHeight  isIPhoneX ? 44 : 20
+
+
 #define UICommonTableBkgColor UIColorFromRGB(0xe4e7ec)
 #define UICommonBtnBkgColor UIColorFromRGB(0x238ef1)
 #define Chatroom_Message_Font [UIFont boldSystemFontOfSize:14] // 聊天室聊天文字字体

@@ -56,7 +56,7 @@
 {
     [super layoutSubviews];
     
-    self.filterBtn.frame = CGRectMake(0, 0, self.width/5, self.height);
+    self.filterBtn.frame = CGRectMake(0, (MAStatusBarHeight) - 20, self.width/5, self.height);
     self.adjustBtn.frame = CGRectMake(self.filterBtn.right, 0, self.width/5, self.height);
     self.audioBtn.frame = CGRectMake(self.adjustBtn.right, 0, self.width/5, self.height);
     self.imgBtn.frame = CGRectMake(self.audioBtn.right, 0, self.width/5, self.height);
@@ -162,7 +162,7 @@
 {
     if (!_faceUSwitch) {
         _faceUSwitch = [[UISwitch alloc] init];
-        _faceUSwitch.on = NO;
+        _faceUSwitch.on = YES;
         [_faceUSwitch addTarget:self action:@selector(switchAction:) forControlEvents:UIControlEventValueChanged];
     }
     return _faceUSwitch;
