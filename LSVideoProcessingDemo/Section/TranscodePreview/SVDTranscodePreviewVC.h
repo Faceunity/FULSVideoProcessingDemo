@@ -12,4 +12,8 @@
 
 - (instancetype)initWithFilePaths:(NSArray *)filePaths;
 
+/// 是否从录制进来
+@property(nonatomic, assign) BOOL isFromRecord;
+
+
 @end
